@@ -90,7 +90,7 @@ class productController extends Controller
 
 
     public function products(){
-        $products = products::all();
+        $products = products::orderBy('name', 'asc')->get();
         foreach ($products as $product) {
             $stock_cr = stock::where('product_id', $product->id)->sum('cr');
             $stock_db = stock::where('product_id', $product->id)->sum('db');
@@ -102,7 +102,11 @@ class productController extends Controller
 
     public function storePro(request $req)
     {
-        $check = products::where('name', $req->name)->where('bike', $req->bike)->where('model', $req->model)->count();
+        $check = products::where('name', $req->name)
+        ->where('bike', $req->bike)
+        ->where('model', $req->model)
+        ->where('brand', $req->brand)
+        ->count();
 
         if($check > 0)
         {
@@ -127,6 +131,7 @@ class productController extends Controller
                 'model' => $req->model,
                 'bike' => $req->bike,
                 'brand' => $req->brand,
+                'price' => $req->price,
                 'alert' => $req->alert,
                 'pic' =>  $image_path1,
             ]
@@ -160,6 +165,7 @@ class productController extends Controller
                 'bike' => $req->bike,
                 'pic' => $image_path1,
                 'brand' => $req->brand,
+                'price' => $req->price,
                 'model' => $req->model,
                 'alert' => $req->alert,
             ]

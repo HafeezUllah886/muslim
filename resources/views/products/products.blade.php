@@ -136,6 +136,12 @@ App::setLocale(auth()->user()->lang);
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" name="price" id="edit_price" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="alert">Alert Qty</label>
                                 <input type="number" required id="edit_alert" name="alert" class="form-control">
                             </div>
@@ -204,6 +210,12 @@ App::setLocale(auth()->user()->lang);
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" name="price" id="price" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="alert">Alert Qty</label>
                                 <input type="number" required name="alert" id="alert" class="form-control">
                             </div>
@@ -252,6 +264,7 @@ App::setLocale(auth()->user()->lang);
                 $('#edit_name').val(abc.pro['name']);
                 $('#edit_code').val(abc.pro['code']);
                 $('#edit_bike').val(abc.pro['bike']);
+                $('#edit_price').val(abc.pro['price']);
                 $('#edit_brand').val(abc.pro['brand']);
                 $('#edit_model').val(abc.pro['model']);
                 $('#edit_alert').val(abc.pro['alert']);

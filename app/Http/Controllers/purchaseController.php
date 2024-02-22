@@ -45,7 +45,7 @@ class purchaseController extends Controller
             [
                 'pprice' => $req->rate,
                 'price' => $req->price,
-                'wholesale' => $req->wholesale,
+               /*  'wholesale' => $req->wholesale, */
             ]
         );
 

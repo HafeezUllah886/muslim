@@ -32,6 +32,17 @@
         }
 
     }
+    function price1(){
+
+var id = $('#product').find(":selected").val();
+ $.ajax({
+     method: 'get',
+     url: "{{ url('/sale/getPrice/') }}/"+id,
+     success: function(data){
+        $('#price').val(data.price);
+     }
+ });
+}
 </script>
 @php
         App::setLocale(auth()->user()->lang);
@@ -63,7 +74,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="product">{{ __('lang.SelectProduct') }}</label>
-                            <select name="product" required id="product" class="select2">
+                            <select name="product" onchange="price1()" required id="product" class="select2">
                                 <option value=""></option>
                                 @foreach ($products as $pro)
                                     <option value="{{ $pro->id }}"> {{$pro->code}} | {{ $pro->name }} | {{$pro->bike}}</option>
@@ -85,14 +96,8 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="price">Retail</label>
+                            <label for="price">Price</label>
                             <input type="number" required name="price" id="price" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="wholesale">Wholesale</label>
-                            <input type="number" required name="wholesale" id="wholesale" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-1">
