@@ -60,11 +60,12 @@ App::setLocale(auth()->user()->lang);
                             @foreach ($products as $pro)
                             @php
                             $ser += 1;
+                            $pic = $pro->pic ?? 'assets/images/no_image.jpg';
                             @endphp
                             <tr>
                                 <td> {{ $ser }} </td>
                                 <td>
-                                    <img src="{{ asset($pro->pic) }}" width="100%">
+                                    <img src="{{ asset($pic) }}" width="100%">
                                 </td>
                                 <td>{{ $pro->name }}</td>
                                 <td>{{ $pro->code }}</td>
@@ -75,7 +76,6 @@ App::setLocale(auth()->user()->lang);
                                 <td>{{ $pro->price }}</td>
                                 <td>{{ $pro->alert }}</td>
                                 <td>
-
                                     <button onclick='edit_pro({{ $pro->id }})' class="btn btn-primary">Edit</button>
                                     <a href="{{ url('/product/delete/') }}/{{ $pro->id }}" class="btn btn-danger">Delete</a>
                                 </td>
