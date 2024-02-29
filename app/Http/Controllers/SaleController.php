@@ -337,7 +337,7 @@ class SaleController extends Controller
         $currant_bal_db = transactions::where('account_id', $invoice->customer)->where('date', '<=', $invoice->date)->sum('db');
 
         $cur_balance = $currant_bal_cr - $currant_bal_db;
-        return view('sale.print')->with(compact('invoice', 'details', 'prev_balance', 'cur_balance', 'target'));
+        return view('sale.print1')->with(compact('invoice', 'details', 'prev_balance', 'cur_balance', 'target'));
     }
 
     public function printLast()

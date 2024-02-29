@@ -42,7 +42,7 @@ App::setLocale(auth()->user()->lang);
                             <tr>
                                 <th class="border-top-0">{{ __('lang.Ser') }}</th>
                                 <th class="border-top-0">Image</th>
-                                <th class="border-top-0">{{ __('lang.Product') }}</th>
+                                <th class="border-top-0" colspan="2">{{ __('lang.Product') }}</th>
                                 <th class="border-top-0">Code</th>
                                 <th class="border-top-0">Bike</th>
                                 <th class="border-top-0">Model</th>
@@ -68,6 +68,7 @@ App::setLocale(auth()->user()->lang);
                                     <img src="{{ asset($pic) }}" width="100%">
                                 </td>
                                 <td>{{ $pro->name }}</td>
+                                <td>{{ $pro->urdu }}</td>
                                 <td>{{ $pro->code }}</td>
                                 <td>{{ $pro->bike }}</td>
                                 <td>{{ $pro->model }}</td>
@@ -104,10 +105,16 @@ App::setLocale(auth()->user()->lang);
                 <form action="{{ url('/product/edit') }}"  enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">{{ __('lang.Product') }}</label>
                                 <input type="text" required id="edit_name" name="name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="urdu">Urdu</label>
+                                <input type="text" required id="edit_urdu" name="urdu" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -178,10 +185,16 @@ App::setLocale(auth()->user()->lang);
                 @csrf
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">{{ __('lang.Product') }}</label>
                                 <input type="text" required name="name" id="name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="urdu">Urdu</label>
+                                <input type="text" required name="urdu" id="urdu" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -268,6 +281,7 @@ App::setLocale(auth()->user()->lang);
                 $('#edit_brand').val(abc.pro['brand']);
                 $('#edit_model').val(abc.pro['model']);
                 $('#edit_alert').val(abc.pro['alert']);
+                $('#edit_urdu').val(abc.pro['urdu']);
                 $('#edit_id').val(abc.pro['id']);
                 $('#edit').modal('show');
             }

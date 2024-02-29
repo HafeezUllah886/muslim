@@ -125,6 +125,7 @@ class productController extends Controller
         products::create(
             [
                 'name' => $req->name,
+                'urdu' => $req->urdu,
                 'code' => $req->code,
                 'price' => 0,
                 'pprice' => 0,
@@ -161,6 +162,7 @@ class productController extends Controller
         products::where('id', $req->id)->update(
             [
                 'name' => $req->name,
+                'urdu' => $req->urdu,
                 'code' => $req->code,
                 'bike' => $req->bike,
                 'pic' => $image_path1,

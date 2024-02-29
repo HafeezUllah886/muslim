@@ -37,7 +37,7 @@
         }
 
         .brand-section {
-            background-color: #898811;
+            background-color: #114d89;
             padding: 10px 40px;
         }
 
@@ -65,14 +65,14 @@
         }
 
         .body-section {
-            padding: 5px;
+            padding: 16px;
           /*   border-left: 2px solid #898811;
             border-right: 2px solid #898811; */
 
         }
 
         .body-section1 {
-            background-color: #898811;
+            background-color: #114d89;
             color: white;
             border-radius: 4px;
         }
@@ -106,7 +106,7 @@
         table th,
         table td {
             padding-top: 08px;
-           /*  padding-bottom: 08px; */
+            padding-bottom: 08px;
         }
 
         /* .table-bordered {
@@ -115,17 +115,12 @@
 
         .table-bordered td,
         .table-bordered th {
-           /*  border: 1px solid #dee2e6; */
+            border: 1px solid #114d89;
         }
 
         .text-right {
             text-align: end;
             padding-right: 3px;
-            ;
-        }
-        .text-left {
-            text-align: start;
-            padding-left: 3px;
             ;
         }
 
@@ -157,7 +152,7 @@
         }
 
         .sub-container {
-            background-color: #898811;
+            background-color: #114d89;
             ;
             margin: 5px;
             padding-bottom: 2px;
@@ -192,10 +187,10 @@
         }
 
         .qoute {
-            width: 100px;
+            width: 21%;
             margin: auto;
             text-align: center;
-            background-color: #898811;
+            background-color: #114d89;
             color: white;
             border-radius: 5px;
             font-size: 12px;
@@ -227,8 +222,6 @@
                 margin-top: -50px;
                 margin-left: 8px;
             }
-
-
         }
 
         .div3 {}
@@ -242,7 +235,7 @@
         .dot {
             height: 60px;
             width: 65px;
-            background-color: #898811;
+            background-color: #114d89;
             color: white;
             /* color: #b80000; */
             border-radius: 50%;
@@ -252,39 +245,36 @@
             margin-left: 7px;
             text-align: center;
         }
-        .sub-heading{
-            display: flex;
-            align-items: center
-            height:100px;
-        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
-        <div style="text-align: center;">
-           <img style="width:100%;margin:0 auto;height:100px;" src="{{ asset('assets/images/header.jpg') }}" alt="">
-        </div>
+       
+        <img style="margin:0;width:100%;" src="{{ asset('assets/images/header.jpg') }}" alt="">
+        <div class="body-section" style="padding:0px;">
+            <div class="row">
+                <div class="col-12" style="width:100%;">
+                    <table style="width:100%;">
+                        <tr style="width:100%;">
+                            <td style="width:70%;" >
+                                <h4 class="sub-heading" style="text-align: left; padding:0px 10px;">Invoice to:
+                                    @if (@$invoice->customer_account->title)
+                                        {{ @$invoice->customer_account->title }}
+                                    @else
+                                        {{ $invoice->walking }} (Walk In)
+                                    @endif
+                                </h4>
+                                
+                            </td>
 
-        <div class="body-section">
-            <div><h5 style="text-align: center;">Customer Invoice</h5></div>
-            <div class="row">
-                <div class="qoute">
-                    <h5 style="text-align: center;">INVOICE# &nbsp; {{ $invoice->id }}</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <!-- <h2 class="heading">Invoice No.: 001</h2> -->
-                    <h5 class="sub-heading">Invoice to:
-                            {{ $invoice->customer_account->title }}
-                    </h5>
-                </div>
-                <div class="col-6">
-                    <div class="company-details">
-                        <h5 class="text-dark">Date: {{ date('d M Y', strtotime($invoice->date)) }}</h5>
-                    </div>
+                            <td style="width:30%;">
+                                <h4 style="text-align: left; padding:0px 10px;"> Invoice No. {{ $invoice->id }}</h4>
+                                <h4 style="text-align: left; padding:0px 10px;" class="text-dark">Date: {{ date('d M Y', strtotime($invoice->date)) }}</h4>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -294,11 +284,13 @@
             <br> -->
             <table class="table-bordered">
                 <thead>
-                    <tr style="background-color: #111;color:#fff;">
+                    <tr style="background-color: #114d89;color:#fff;">
                         <th class="w-5">#</th>
-                        <th class="w-15">Product</th>
+                        <th class="w-15" colspan="2">Product</th>
+                        <th class="w-10">Brand</th>
                         <th class="w-10">Qty</th>
                         <th class="w-10">Price</th>
+                        <th class="w-10">Discount</th>
                         <th class="w-15">Total</th>
                     </tr>
                 </thead>
@@ -311,49 +303,51 @@
                     @foreach ($details as $item)
                         @php
                             $ser += 1;
+                            $price = $item->price - $item->discount;
                         @endphp
                         <tr>
-                            <td>{{ $ser }}</td>
-                            <td colspan="4" class="text-left">{{ $item->product->name }}</td></tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
+                            <th scope="row">{{ $ser }}</th>
+                           
+                            <td style="text-align:left;">{{ $item->product->name }}</td>
+                            <td style="text-align:right;">{{ $item->product->urdu }}</td>
+                            <td>{{ $item->product->brand }}</td>
                             <td>{{ $item->qty }}</td>
-                            <td>{{ round($item->price,0) }}</td>
-                            <td>{{ round($item->price * $item->qty,0) }}</td>
+                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->discount }}</td>
+                            <td style="text-align:right;">{{ $price * $item->qty }}</td>
                         </tr>
                         @php
-                            $total += $item->price * $item->qty;
+                            $total += $price * $item->qty;
                         @endphp
                     @endforeach
 
-                    <tr>
-                        <td colspan="4" class="text-right">
+                    <tr style="border:1px solid white;">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Total</strong>
                         </td>
-                        <td>
-                            <strong>{{ round($total,0)}}</strong>
+                        <td style="border:1px solid white;text-align:right;">
+                            <strong>{{ $total}}</strong>
                         </td>
                     </tr>
                     @if($invoice->discount > 0)
                     <tr>
-                        <td colspan="4" class="text-right">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Discount</strong>
                         </td>
-                        <td class="text-right">
+                        <td style="border:1px solid white;text-align:right;">
                             <strong>{{ $invoice->discount == 0 ? 0 : $invoice->discount}}</strong>
                         </td>
                     </tr>
-
                     <tr>
-                        <td colspan="4" class="text-right">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Net Total</strong>
                         </td>
-                        <td>
-                            <strong>{{ ($total - $invoice->discount) }}</strong>
+                        <td style="border:1px solid white;text-align:right;">
+                            <strong>{{ $total - $invoice->discount }}</strong>
                         </td>
                     </tr>
                     @endif
+
                     @if (@$invoice->customer_account->title)
                     <tr>
                         @php
@@ -369,19 +363,19 @@
                         }
 
                         @endphp
-                        @if(@$invoice->isPaid != "Yes")
-                        <td colspan="4" class="text-right">
-                            <strong>Paid Amount</strong>
+                        @if(@$invoice->isPaid == "Partial")
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                            <strong>Payment</strong>
                         </td>
-                        <td>
+                        <td style="border:1px solid white;text-align:right;">
                             <strong>{{ $paidAmount }}</strong>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4" class="text-right">
-                            <strong>Remaining</strong>
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                            <strong>Balance</strong>
                         </td>
-                        <td>
+                        <td style="border:1px solid white;text-align:right;">
                             <h3> {{ $total - $paidAmount - $invoice->discount}}</h3>
                         </td>
                     </tr>
@@ -391,8 +385,18 @@
                 </tbody>
             </table>
             <br>
+   
+
+            <br><br>
+            <h4 class="">Authorize Signature ___________________</h4>
+           {{--  <p style="text-align:right;margin-right:2px;">superupscenter@gmail.com</p> --}}
             <br>
         </div>
+
+        {{-- <div class="body-section body-section1">
+            <p style="text-align: center;">Thank You For Your Business
+            </p>
+        </div> --}}
     </div>
     <div style="text-align: right; margin-right:10px;">
         <div class="mt-2" style="font-size: 10px; ">Powered by Diamond Software 03202565919</p>
@@ -401,11 +405,10 @@
 
 </html>
 <script>
-
     window.print();
-        setTimeout(function() {
-        window.location.href = "{{ url('/sale')}}";
-    }, 5000);
 
+        setTimeout(function() {
+        window.location.href = "{{ url('/sale/history')}}";
+    }, 5000);
 
 </script>
