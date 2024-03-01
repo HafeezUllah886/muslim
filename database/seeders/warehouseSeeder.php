@@ -16,8 +16,5 @@ class warehouseSeeder extends Seeder
         warehouses::create(
             ['name' => 'Warehouse 1'],
         );
-        warehouses::create(
-            ['name' => 'Warehouse 2'],
-        );
     }
 }

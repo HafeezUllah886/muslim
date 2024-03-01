@@ -291,7 +291,7 @@
                         <th class="w-10">Qty</th>
                         <th class="w-10">Price</th>
                         <th class="w-10">Discount</th>
-                        <th class="w-15">Total</th>
+                        <th style="min-width: 150px;">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -307,7 +307,6 @@
                         @endphp
                         <tr>
                             <th scope="row">{{ $ser }}</th>
-                           
                             <td style="text-align:left;">{{ $item->product->name }}</td>
                             <td style="text-align:right;">{{ $item->product->urdu }}</td>
                             <td>{{ $item->product->brand }}</td>
@@ -399,7 +398,7 @@
         </div> --}}
     </div>
     <div style="text-align: right; margin-right:10px;">
-        <div class="mt-2" style="font-size: 10px; ">Powered by Diamond Software 03202565919</p>
+        <div class="mt-2" style="font-size: 10px; ">Powered by Diamond Software - diamondsoftwareqta.com</p>
         </div>
 </body>
 

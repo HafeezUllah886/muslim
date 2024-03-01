@@ -23,14 +23,14 @@ class accountsSeeder extends Seeder
 
         account::create(
             [
-                'title' => 'Test Customer',
+                'title' => 'Walk-in Customer',
                 'type' => 'Customer',
             ]
         );
 
         account::create(
             [
-                'title' => 'Test Vendor',
+                'title' => 'Walk-in Vendor',
                 'type' => 'Vendor',
             ]
         );
