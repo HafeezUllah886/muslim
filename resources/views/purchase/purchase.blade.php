@@ -184,7 +184,6 @@ var id = $('#product').find(":selected").val();
                                 <div class="form-group">
                                     <label for="paidFrom">{{ __('lang.PaidBy') }}</label>
                                     <select name="paidFrom" id="paidFrom" class=" select2">
-                                        <option></option>
                                         @foreach ($paidFroms as $acct)
                                             <option value="{{ $acct->id }}">{{ $acct->title }}</option>
                                         @endforeach
