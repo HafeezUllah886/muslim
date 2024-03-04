@@ -100,6 +100,7 @@ class SaleReturnController extends Controller
                         'product_id' => $id,
                         'date' => $req->date,
                         'desc' => "Sale Return",
+                        'warehouseID' => auth()->user()->warehouseID,
                         'cr' => $qty,
                         'ref' => $ref
                     ]
