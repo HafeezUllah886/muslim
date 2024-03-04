@@ -259,7 +259,7 @@
                     <table style="width:100%;">
                         <tr style="width:100%;">
                             <td style="width:70%;" >
-                                <h4 class="sub-heading" style="text-align: left; padding:0px 10px;">Invoice to:
+                                <h4 class="sub-heading" style="text-align: left; padding:0px 10px;">Quotation to:
                                     @if (@$invoice->customer_account->title)
                                         {{ @$invoice->customer_account->title }}
                                     @else
