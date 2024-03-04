@@ -32,7 +32,7 @@ class usersSeeder extends Seeder
                 'email' => 'operator@email.com',
                 'password' => Hash::make('operator'),
                 'role' => 2,
-                'warehouseID' => 2,
+                'warehouseID' => 1,
                 'lang' => 'en',
             ],
         );
