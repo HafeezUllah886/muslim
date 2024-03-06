@@ -81,7 +81,7 @@
                             <select name="product" required id="product" onchange="price1()" class="selectize">
                                 <option value=""></option>
                                 @foreach ($products as $pro)
-                                    <option value="{{ $pro->id }}" data-price="{{ $pro->price }}"> {{$pro->code}} | {{ $pro->name }} | {{$pro->bike}}</option>
+                                    <option value="{{ $pro->id }}" data-price="{{ $pro->price }}"> {{$pro->code}} | {{ $pro->name }} | {{$pro->bike}} | {{$pro->model}}</option>
                                 @endforeach
                             </select>
                         </div>

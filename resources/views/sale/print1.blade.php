@@ -282,7 +282,7 @@
         <div class="body-section">
             <!-- <h3 class="heading">Ordered Items</h3>
             <br> -->
-            <table class="table-bordered">
+            <table class="table-bordered" style="font-size: 15px">
                 <thead>
                     <tr style="background-color: #114d89;color:#fff;">
                         <th class="w-5">#</th>
@@ -290,8 +290,8 @@
                         <th class="w-10">Brand</th>
                         <th class="w-10">Qty</th>
                         <th class="w-10">Price</th>
-                        <th class="w-10">Discount</th>
-                        <th style="min-width: 150px;">Total</th>
+                        {{-- <th class="w-10">Discount</th> --}}
+                        <th style="min-width: 50px;">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -312,7 +312,7 @@
                             <td>{{ $item->product->brand }}</td>
                             <td>{{ $item->qty }}</td>
                             <td>{{ $item->price }}</td>
-                            <td>{{ $item->discount }}</td>
+                           {{--  <td>{{ $item->discount }}</td> --}}
                             <td style="text-align:right;">{{ $price * $item->qty }}</td>
                         </tr>
                         @php
@@ -321,7 +321,7 @@
                     @endforeach
 
                     <tr style="border:1px solid white;">
-                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                        <td colspan="6" class="text-right" style="border:1px solid white;">
                             <strong>Total</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -330,7 +330,7 @@
                     </tr>
                     @if($invoice->discount > 0)
                     <tr>
-                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                        <td colspan="6" class="text-right" style="border:1px solid white;">
                             <strong>Discount</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -338,7 +338,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                        <td colspan="6" class="text-right" style="border:1px solid white;">
                             <strong>Net Total</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -363,7 +363,7 @@
 
                         @endphp
                         @if(@$invoice->isPaid == "Partial")
-                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                        <td colspan="6" class="text-right" style="border:1px solid white;">
                             <strong>Payment</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -371,7 +371,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="7" class="text-right" style="border:1px solid white;">
+                        <td colspan="6" class="text-right" style="border:1px solid white;">
                             <strong>Balance</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
