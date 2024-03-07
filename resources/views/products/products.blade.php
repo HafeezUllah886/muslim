@@ -78,7 +78,7 @@ App::setLocale(auth()->user()->lang);
                                 <td>{{ $pro->alert }}</td>
                                 <td>
                                     <button onclick='edit_pro({{ $pro->id }})' class="btn btn-primary">Edit</button>
-                                    <a href="{{ url('/product/delete/') }}/{{ $pro->id }}" class="btn btn-danger">Delete</a>
+                                    {{-- <a href="{{ url('/product/delete/') }}/{{ $pro->id }}" class="btn btn-danger">Delete</a> --}}
                                 </td>
                             </tr>
                             @endforeach

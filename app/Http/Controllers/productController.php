@@ -179,6 +179,7 @@ class productController extends Controller
                 [
                     'name' => $req->name,
                     'code' => $req->code,
+                    'urdu' => $req->urdu,
                     'bike' => $req->bike,
                     'brand' => $req->brand,
                     'model' => $req->model,
