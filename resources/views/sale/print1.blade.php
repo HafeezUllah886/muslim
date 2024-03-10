@@ -285,11 +285,11 @@
             <table class="table-bordered" style="font-size: 15px">
                 <thead>
                     <tr style="background-color: #114d89;color:#fff;">
-                        <th class="w-5">#</th>
-                        <th class="w-15" colspan="2">Product</th>
-                        <th class="w-10">Brand</th>
-                        <th class="w-10">Qty</th>
-                        <th class="w-10">Price</th>
+                        <th >#</th>
+                        <th colspan="2">Product</th>
+                        <th >Brand</th>
+                        <th >Qty</th>
+                        <th >Price</th>
                         {{-- <th class="w-10">Discount</th> --}}
                         <th style="min-width: 50px;">Total</th>
                     </tr>
