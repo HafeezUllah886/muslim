@@ -24,7 +24,7 @@
                                 <th class="border-top-0">{{__('lang.Product')}}</th>
                                 <th class="border-top-0">Model</th>
                                 <th class="border-top-0">Brand</th>
-                                <th class="border-top-0">Model</th>
+                                <th class="border-top-0">Bike</th>
                                 <th class="border-top-0">Stock Alert</th>
                                 <th class="border-top-0">Available Stock</th>
                             </tr>
@@ -41,7 +41,7 @@
                                 <td> {{ $product->name }} </td>
                                 <td> {{ $product->model }} </td>
                                 <td> {{ $product->brand }} </td>
-                                <td> {{ $product->model }} </td>
+                                <td> {{ $product->bike }} </td>
                                 <td> {{ $product->alert }} </td>
                                 <td style="color:{{$color}};"> {{ $product->availStock }} </td>
                             </tr>
