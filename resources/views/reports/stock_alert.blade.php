@@ -32,6 +32,7 @@
                         <tbody>
                             @foreach ($products as $product)
                             @php
+                                $color = "";
                                 if($product->availStock <= $product->alert)
                                 {
                                     $color = "red";
