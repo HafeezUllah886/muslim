@@ -49,7 +49,7 @@
                             <select name="product" required id="product" class="select2">
                                 <option value=""></option>
                                 @foreach ($products as $pro)
-                                    <option value="{{ $pro->id }}">{{ $pro->name }} | {{$pro->code}} | {{$pro->bike}}</option>
+                                <option value="{{ $pro->id }}"> {{$pro->code}} | {{ $pro->name }} | {{$pro->bike}} | {{$pro->model}} | {{$pro->brand}}</option>
                                 @endforeach
                             </select>
                         </div>

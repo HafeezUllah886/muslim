@@ -98,7 +98,7 @@ input[type=number] {
                     <select name="product" class="selectize" placeholder="Search Product or Scan Barcode" id="selectize">
                         @foreach ($products as $product)
                             <option value=""></option>
-                            <option value="{{ $product->id }}">{{ $product->code }} | {{ $product->name }} | {{$product->bike}} | {{$product->model}}</option>
+                            <option value="{{ $product->id }}">{{ $product->code }} | {{ $product->name }} | {{$product->bike}} | {{$product->model}} | {{$product->brand}}</option>
                         @endforeach
                     </select>
                 </div>
