@@ -159,7 +159,7 @@
                     <td colspan="3" class="text-right" style="font-size: 20px"><strong>{{ number_format($total - $invoice->discount, 0) }}</strong></td>
                    </tr> 
                    @endif
-                   @if ($invoice->isPaid != "Yes")
+                  
                    <tr>
                     <td colspan="3" class="text-right">Paid:</td>
                     <td colspan="3" class="text-right" style="font-size: 15px">{{ number_format($invoice->amount,0) }}</td>
@@ -168,7 +168,7 @@
                     <td colspan="3" class="text-right">Remaining:</td>
                     <td colspan="3" class="text-right" style="font-size: 15px"><strong>{{ number_format(($total - $invoice->discount) - $invoice->amount, 0) }}</strong></td>
                    </tr>
-                   @endif
+                  
                 </tbody>
             </table>
         </div>

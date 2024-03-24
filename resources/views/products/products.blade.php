@@ -13,6 +13,7 @@ App::setLocale(auth()->user()->lang);
     {{ session('error') }}
 </div>
 @endif
+
 <div class="row">
     <div class="col-12">
         <div class="card-header">
@@ -24,6 +25,8 @@ App::setLocale(auth()->user()->lang);
                     $firstDateOfMonth = date('Y-m-01', strtotime($currentMonth));
                     $lastDateOfMonth = date('Y-m-t', strtotime($currentMonth));
                     @endphp
+                    <a href="{{ url('/products/print') }}" class="btn btn-warning mr-2">Print</a>
+                    <a href="{{ url('/products/pricelist') }}" class="btn btn-primary mr-2">Price List</a>
                     <a href="{{ url('/profit') }}/{{ $firstDateOfMonth }}/{{ $lastDateOfMonth }}" class="btn btn-info mr-2">{{ __('lang.Profit/Loss') }}</a>
                     <a href="{{ url('/products/trashed') }}" class="btn btn-dark mr-2">{{ __('lang.Trashed') }}</a>
                     <button class="btn btn-success mr-2" data-toggle="modal" data-target="#modal">{{ __('lang.CreateNew') }}</button>
@@ -68,7 +71,7 @@ App::setLocale(auth()->user()->lang);
                                     <img src="{{ asset($pic) }}" width="100%">
                                 </td>
                                 <td>{{ $pro->name }}</td>
-                                <td>{{ $pro->urdu }}</td>
+                                <td class="urdu">{{ $pro->urdu }}</td>
                                 <td>{{ $pro->code }}</td>
                                 <td>{{ $pro->bike }}</td>
                                 <td>{{ $pro->model }}</td>
@@ -114,7 +117,7 @@ App::setLocale(auth()->user()->lang);
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="urdu">Urdu</label>
-                                <input type="text" required id="edit_urdu" name="urdu" class="form-control">
+                                <input type="text" required id="edit_urdu" name="urdu" class="form-control urdu">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -194,7 +197,7 @@ App::setLocale(auth()->user()->lang);
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="urdu">Urdu</label>
-                                <input type="text" required name="urdu" id="urdu" class="form-control">
+                                <input type="text" required name="urdu" id="urdu" class="form-control urdu">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -263,6 +266,8 @@ App::setLocale(auth()->user()->lang);
         , "bPaginate": true
         , "bFilter": true
         , "bInfo": true,
+        "lengthMenu": [[-1], ["All"]]
+        /* "pageLength": 100 */
 
     });
 

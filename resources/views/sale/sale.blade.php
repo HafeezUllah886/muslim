@@ -78,10 +78,10 @@
                     <div class="col-md-3 p-1">
                         <div class="form-group">
                             <label for="product">{{__('lang.SelectProduct')}}</label>
-                            <select name="product" required id="product" onchange="price1()" class="selectize">
+                            <select name="product" required id="product" onchange="price1()" class="selectize urdu">
                                 <option value=""></option>
                                 @foreach ($products as $pro)
-                                    <option value="{{ $pro->id }}" data-price="{{ $pro->price }}"> {{$pro->code}} | {{ $pro->name }} | {{$pro->bike}} | {{$pro->model}} | {{$pro->brand}}</option>
+                                    <option value="{{ $pro->id }}" data-price="{{ $pro->price }}"> {{$pro->code}} | {{ $pro->name }} | {{$pro->bike}} | {{$pro->model}} | {{$pro->brand}} | {{$pro->urdu}}</option>
                                 @endforeach
                             </select>
                         </div>

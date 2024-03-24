@@ -203,6 +203,9 @@ Route::middleware('auth')->group(function (){
     Route::post('/stocktransfer/store', [StockTransferController::class, 'store']);
 
     Route::get('/stocktransfer/getSingleProduct/{id}/{warehouse}', [StockTransferController::class, 'getSingleProduct']);
+
+    Route::get('/products/pricelist', [productController::class, "pricelist"]);
+    Route::get('/products/print', [productController::class, "print"]);
 });
 
 Route::middleware(['confirm.password'])->group(function () {

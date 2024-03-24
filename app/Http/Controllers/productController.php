@@ -324,4 +324,15 @@ class productController extends Controller
             return back()->with("error", "Invalid file extension");
         }
     }
+
+    public function pricelist()
+    {
+        $products = products::all();
+        return view('products.pricelist', compact('products'));
+    }
+    public function print()
+    {
+        $products = products::all();
+        return view('products.print', compact('products'));
+    }
 }
