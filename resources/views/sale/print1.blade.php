@@ -101,7 +101,7 @@
         table td {
             vertical-align: middle !important;
             text-align: center;
-           
+
         }
 
         table th,
@@ -248,7 +248,7 @@
         }
         .urdu{
         font-family: "Jameel Noori Nastaleeq" !important;
-      
+
     }
     </style>
 </head>
@@ -256,8 +256,10 @@
 <body>
 
     <div class="container">
-       
-        <img style="margin:0;width:100%;" src="{{ asset('assets/images/header.jpg') }}" alt="">
+        <div style="text-align: right; margin-right:10px;">
+            <div class="mt-2" style="font-size: 10px; ">Powered by Diamond Software - Diamondsoftwareqta.com</p>
+            </div>
+        <img style="margin:0;width:100%;height:70px !important;" src="{{ asset('assets/images/header.jpg') }}" alt="">
         <div class="body-section" style="padding:0px;">
             <div class="row">
                 <div class="col-12" style="width:100%;">
@@ -271,7 +273,7 @@
                                         {{ $invoice->walking }} (Walk In)
                                     @endif
                                 </h4>
-                                
+
                             </td>
 
                             <td style="width:30%;">
@@ -293,6 +295,7 @@
                         <th >#</th>
                         <th colspan="2">Product</th>
                         <th >Brand</th>
+                        <th >Model</th>
                         <th >Qty</th>
                         <th >Price</th>
                         {{-- <th class="w-10">Discount</th> --}}
@@ -315,6 +318,7 @@
                             <td style="text-align:left;">{{ $item->product->name }}</td>
                             <td style="text-align:right;" class="urdu">{{ $item->product->urdu }}</td>
                             <td>{{ $item->product->brand }}</td>
+                            <td>{{ $item->product->model }}</td>
                             <td>{{ $item->qty }}</td>
                             <td>{{ $item->price }}</td>
                            {{--  <td>{{ $item->discount }}</td> --}}
@@ -326,7 +330,7 @@
                     @endforeach
 
                     <tr style="border:1px solid white;">
-                        <td colspan="6" class="text-right" style="border:1px solid white;">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Total</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -335,7 +339,7 @@
                     </tr>
                     @if($invoice->discount > 0)
                     <tr>
-                        <td colspan="6" class="text-right" style="border:1px solid white;">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Discount</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -343,7 +347,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-right" style="border:1px solid white;">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Net Total</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -367,8 +371,8 @@
                         }
 
                         @endphp
-                        
-                        <td colspan="6" class="text-right" style="border:1px solid white;">
+
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Payment</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
@@ -376,36 +380,23 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-right" style="border:1px solid white;">
+                        <td colspan="7" class="text-right" style="border:1px solid white;">
                             <strong>Balance</strong>
                         </td>
                         <td style="border:1px solid white;text-align:right;">
                             <h3> {{ $total - $paidAmount - $invoice->discount}}</h3>
                         </td>
                     </tr>
-                       
+
                     @endif
                 </tbody>
             </table>
             <p style="text-align: center; font-size:20px;" class="urdu">نوٹ: بل میں کمی پیشی کی صورت میں 5 دن کے اندر اطلاع دیں۔
             </p>
-            <br>
-   
-
-            <br><br>
-            <h4 class="">Authorize Signature ___________________</h4>
-           {{--  <p style="text-align:right;margin-right:2px;">superupscenter@gmail.com</p> --}}
-            <br>
         </div>
 
-      {{--  <div class="body-section body-section1">
-            <p style="text-align: center; font-size:25px;" class="urdu">نوٹ: بل میں کمی پیشی کی صورت میں 5 دن کے اندر اطلاع دیں۔
-            </p>
-        </div>  --}}
     </div>
-    <div style="text-align: right; margin-right:10px;">
-        <div class="mt-2" style="font-size: 10px; ">Powered by Diamond Software - Diamondsoftwareqta.com</p>
-        </div>
+
 </body>
 
 </html>
