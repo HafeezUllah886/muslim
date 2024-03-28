@@ -108,6 +108,7 @@
         table td {
             padding-top: 0px;
             padding-bottom: 0px;
+            text-align: center;
         }
 
         /* .table-bordered {
@@ -122,7 +123,6 @@
         .text-right {
             text-align: end;
             padding-right: 3px;
-            ;
         }
 
         .w-20 {
@@ -154,14 +154,11 @@
 
         .sub-container {
             background-color: #114d89;
-            ;
             margin: 5px;
             padding-bottom: 2px;
             display: flex;
             height: 78px;
             border-radius: 6px;
-
-
         }
 
         .m-query1 {
@@ -176,7 +173,6 @@
             margin-top: -36px;
             padding: 2px;
             width: 92%;
-            height: 148px;
             margin-left: 2px;
 
         }
@@ -219,7 +215,6 @@
 
             img {
                 width: 99%;
-                height: 171%;
                 margin-top: -50px;
                 margin-left: 8px;
             }
@@ -259,7 +254,7 @@
         <div style="text-align: right; margin-right:10px;">
             <div class="mt-2" style="font-size: 10px; ">Powered by Diamond Software - Diamondsoftwareqta.com</p>
             </div>
-        <img style="margin:0;width:100%;height:70px !important;" src="{{ asset('assets/images/header.jpg') }}" alt="">
+        <img style="margin:0;width:100%;height:50px !important;" src="{{ asset('assets/images/header.jpg') }}" alt="">
         <div class="body-section" style="padding:0px;">
             <div class="row">
                 <div class="col-12" style="width:100%;">
@@ -277,7 +272,7 @@
                             </td>
 
                             <td style="width:30%;">
-                                <h4 style="text-align: left; padding:0px 10px;"> Invoice No. {{ $invoice->id }}</h4>
+                                <h4 style="text-align: left; padding:0px 10px;"> Quotation No. {{ $invoice->id }}</h4>
                                 <h4 style="text-align: left; padding:0px 10px;" class="text-dark">Date: {{ date('d M Y', strtotime($invoice->date)) }}</h4>
                             </td>
                         </tr>
@@ -401,10 +396,9 @@
 
 </html>
 <script>
-    window.print();
+window.print();
 
-        setTimeout(function() {
-        window.location.href = "{{ url('/sale/history')}}";
-    }, 5000);
-
+setTimeout(function() {
+window.location.href = "{{ url('/sale/history')}}";
+}, 5000);
 </script>
